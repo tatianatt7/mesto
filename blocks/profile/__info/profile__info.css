@@ -1,0 +1,11 @@
+.profile__info {
+    gap: 10px;
+    display: flex;
+}
+
+@media (min-width: 880px) {
+    .profile__info {
+        max-width: 336px;
+        gap: 18px;
+    }
+}

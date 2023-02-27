@@ -1,0 +1,11 @@
+.profile__container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 880px){
+    .profile__container {
+        flex-direction: row;        
+    }
+}
