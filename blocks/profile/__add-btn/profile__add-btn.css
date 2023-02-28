@@ -4,13 +4,15 @@
     height: 50px;
     border-radius: 2px;
     border: 2px solid #ffffff;
-    background-color: #000000;
+    background-color: transparent;
     background-size: 16px 16px;
     background-repeat: no-repeat;
     cursor: pointer;
     background-position: center center;
     padding: 0;
     margin-top: 35px;
+    display: flex;
+    align-items: center;
 }
 
 .profile__add-btn:hover {
@@ -18,7 +20,7 @@
 }
 
 @media (min-width: 880px) {
-    .profile__add-btn{
+    .profile__add-btn {
         max-width: 150px;
         margin-left: 50px;
     }

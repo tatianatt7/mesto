@@ -4,8 +4,8 @@
     flex-direction: column;
 }
 
-@media (min-width: 880px){
+@media (min-width: 880px) {
     .profile__container {
-        flex-direction: row;        
+        flex-direction: row;
     }
 }

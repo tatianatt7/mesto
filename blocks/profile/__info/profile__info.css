@@ -1,6 +1,7 @@
 .profile__info {
     gap: 10px;
     display: flex;
+    margin: auto;
 }
 
 @media (min-width: 880px) {

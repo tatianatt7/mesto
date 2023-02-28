@@ -5,13 +5,13 @@
 }
 
 @media (min-width: 880px) {
-    .header__logo{
+    .header__logo {
         padding-left: 0;
     }
 }
 
 @media (min-width: 1280px) {
-    .header__logo{
+    .header__logo {
         width: 142px;
         height: 33px;
         padding: 0;

@@ -2,7 +2,7 @@
     width: 22px;
     height: 19px;
     background-image: url(../../../images/card_like_btn.svg);
-    background-color: #ffffff;
+    background-color: transparent;
     cursor: pointer;
     background-size: cover;
     background-repeat: no-repeat;
@@ -10,6 +10,6 @@
     margin-top: 5px;
 }
 
-.card__like-btn:hover{
+.card__like-btn:hover {
     opacity: 0.5;
 }
