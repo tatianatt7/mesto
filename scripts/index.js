@@ -31,7 +31,7 @@ function handleFormSubmit (evt) {
     profileJob.textContent = jobInput.value;
     closePopup();
     
-
+}
 
 //listeners
 popupOpenBnt.addEventListener('click', openPopup);
