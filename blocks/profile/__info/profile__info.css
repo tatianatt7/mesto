@@ -1,11 +1,14 @@
 .profile__info {
+    position: relative;
     gap: 10px;
     display: flex;
+    align-items: center;
     margin: 0 auto;
 }
 
 @media (min-width: 880px) {
     .profile__info {
+        left: 0;
         max-width: 336px;
         gap: 18px;
     }

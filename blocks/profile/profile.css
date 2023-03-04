@@ -5,7 +5,7 @@
     margin: 42px 19px 0 19px;
 }
 
-@media (min-width: 880px) {
+@media (min-width: 900px) {
     .profile {
         justify-content: space-between;
         flex-direction: row;

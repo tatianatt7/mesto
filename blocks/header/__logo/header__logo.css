@@ -4,12 +4,6 @@
     padding-left: 27px;
 }
 
-@media (min-width: 880px) {
-    .header__logo {
-        padding-left: 0;
-    }
-}
-
 @media (min-width: 1280px) {
     .header__logo {
         width: 142px;
