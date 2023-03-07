@@ -23,12 +23,13 @@
     .profile__add-btn {
         max-width: 150px;
         margin-left: 50px;
+        
     }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     .profile__add-btn {
         margin: 0;
-        background-size: 22px 22px;
+        background-size: 22px 22px;        
     }
 }

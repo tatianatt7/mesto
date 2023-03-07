@@ -4,12 +4,13 @@
     display: flex;
     align-items: center;
     margin: 0 auto;
+    justify-content: center;
 }
 
 @media (min-width: 880px) {
-    .profile__info {
-        left: 0;
+    .profile__info {       
         max-width: 336px;
         gap: 18px;
+        justify-content: start;
     }
 }

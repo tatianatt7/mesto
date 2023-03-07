@@ -1,8 +1,4 @@
 .profile__edit-btn {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%);
     width: 18px;
     height: 18px;
     padding: 8px;
@@ -21,9 +17,8 @@
     opacity: 0.6;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
     .profile__edit-btn {
-        left: calc(100% + 18px);
         height: 24px;
         width: 24px;
         background-size: 10px 10px;

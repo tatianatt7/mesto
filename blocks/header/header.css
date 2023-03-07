@@ -6,7 +6,7 @@
 @media (min-width: 880px) {
     .header {
         padding-left: 0;
-        margin: 45px auto;
+        margin: 45px auto 38px auto;
         max-width: 880px;
     }
 }

@@ -8,13 +8,15 @@
     margin: 0;
     text-overflow: ellipsis;
     text-align: left;
+    justify-content: center;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 880px) {
     .profile__job {
         font-size: 18px;
         max-width: 336px;
         line-height: 21.78px;
         padding: 0;
+        justify-content: start;
     }
 }
