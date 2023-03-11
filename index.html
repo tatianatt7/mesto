@@ -30,47 +30,8 @@
         </section>
 
         <section class="cards">
-            <div class="card">
-                <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="card__image">
-                <div class="card__wrap">
-                    <h2 class="card__title">Карачаевск</h2>
-                    <button class="card__like-btn" type="button"></button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./images/gora_elbrus.jpg" alt="Эльбрус" class="card__image">
-                <div class="card__wrap">
-                    <h2 class="card__title">Гора Эльбрус</h2>
-                    <button class="card__like-btn" type="button"></button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./images/dombai.jpg" alt="Домбай" class="card__image">
-                <div class="card__wrap">
-                    <h2 class="card__title">Домбай</h2>
-                    <button class="card__like-btn" type="button"></button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./images/gora_elbrus.jpg" alt="Эльбрус" class="card__image">
-                <div class="card__wrap">
-                    <h2 class="card__title">Гора Эльбрус</h2>
-                    <button class="card__like-btn" type="button"></button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./images/dombai.jpg" alt="Домбай" class="card__image">
-                <div class="card__wrap">
-                    <h2 class="card__title">Домбай</h2>
-                    <button class="card__like-btn" type="button"></button>
-                </div>
-            </div>
-            <div class="card">
-                <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="card__image">
-                <div class="card__wrap">
-                    <h2 class="card__title">Карачаево-Черкессия</h2>
-                    <button class="card__like-btn" type="button"></button>
-                </div>
+            <div class="cards__list">
+
             </div>
         </section>
     </main>
@@ -79,7 +40,9 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+
+    <!--попап редактировать профиль-->
+    <div class="popup popup_type_edit">
         <div class="popup__container">
             <button type="button" class="popup__close-btn"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -92,6 +55,39 @@
             </form>
         </div>
     </div>
+    <!--попап добавить картинку-->
+    <div class="popup popup_type_add">
+        <div class="popup__container">
+            <button type="button" class="popup__close-btn"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form" name="popup__form">
+                <input class="popup__input popup__input_value_card-name" type="text" placeholder="Название"
+                    name="card-name">
+                <input class="popup__input popup__input_value_card-link" type="text" placeholder="Ссылка на картинку"
+                    name="card-link">
+                <button type="submit" class="popup__submit-btn">Сохранить</button>
+            </form>
+        </div>
+    </div>
+    <!--попап zoom-->
+    <div class="popup popup_type_zoom">
+        <div class="popup__zoom-container">
+            <button type="button" class="popup__close-btn"></button>
+            <img class="popup__zoom-image" src="#"alt="#">
+            <p class="popup__card-title"></p>
+        </div>
+    </div>
+    <!--card template-->
+    <template id="card-template">
+        <div class="card">
+            <img src="#" alt="#" class="card__image">
+            <div class="card__wrap">
+                <button class="card__trash-btn" type="button"></button>
+                <h2 class="card__title"></h2>
+                <button class="card__like-btn" type="button"></button>
+            </div>
+        </div>
+    </template>    
 
     <script src="./scripts/index.js"></script>
 

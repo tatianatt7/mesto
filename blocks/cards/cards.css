@@ -1,9 +1,5 @@
 .cards {
-    margin: 36px auto 48px;
-    display: grid;
-    width: max-content;
-    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-    gap: 20px;
+    margin: 36px auto 48px;    
 }
 
 @media (min-width: 880px) {
@@ -11,11 +7,5 @@
         margin: 45px auto;
         margin-bottom: 0;
         max-width: 880px;
-    }
-}
-
-@media (min-width: 1280px) {
-    .cards {
-        gap: 20px 17px;
     }
 }
