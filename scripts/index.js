@@ -45,12 +45,30 @@ const cardTemplate = document.querySelector('#card-template').content;
 //функция открыть popup
 function openPopup (popup) {
     popup.classList.add('popup_opened');
-}
+};
 
 //функция закрыть popup
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
-}
+};
+
+//функция закрыть по Overlay
+function closePopupByOverlay (event) {
+    const popupOpened = document.querySelector('.popup_opened')
+    if(event.target === popupOpened) {
+        closePopup(popupOpened)
+    }
+};
+
+//закрыть попап по Esc
+function closePopupByEsc (event) {
+    if (event.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_opened')
+        if(popupOpened) {
+            closePopup(popupOpened)
+        }
+    }
+};
 
 //функция submit
 function handleEditFormSubmit (event) {
@@ -117,9 +135,7 @@ buttonOpenEditProfilePopup.addEventListener('click', function() {
 buttonOpenAddCardPopup.addEventListener('click', function() {
     openPopup(popupAddProfile);
     cardNameInput.value = '';
-    cardLinkInput.value = '';
-
-
+    cardLinkInput.value = '';xcvv
 });
 
 //закрыть попап по крестику
@@ -132,3 +148,9 @@ popupCloseBtns.forEach((button) => {
 //закрыть попап по сабмиту
 formEdit.addEventListener('submit', handleEditFormSubmit);
 formAdd.addEventListener('submit', handleAddFormSubmit);
+
+//закрыть попап по Overlay
+document.addEventListener('click', closePopupByOverlay);
+
+//закрыть попап по Esc
+document.addEventListener('keydown', closePopupByEsc);

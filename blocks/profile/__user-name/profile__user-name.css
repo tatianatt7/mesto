@@ -18,5 +18,6 @@
         margin-bottom: 8px;
         font-size: 42px;
         line-height: 48px;
+        justify-content: start;
     }
 }
