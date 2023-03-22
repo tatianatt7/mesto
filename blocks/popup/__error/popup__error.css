@@ -1,3 +1,6 @@
 .popup__error {
-    
+    min-height: 30px;
+    margin-bottom: 13px;
+    text-align: left;
+    width: 100%;
 }

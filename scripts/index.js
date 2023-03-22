@@ -41,6 +41,9 @@ const zoomTitle = popupZoom.querySelector('.popup__card-title');
 const cardsList = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
+//errors
+const errors = document.querySelectorAll('.popup__error');
+
 //ФУНКЦИИ
 //функция открыть popup
 function openPopup (popup) {
@@ -50,6 +53,7 @@ function openPopup (popup) {
 //функция закрыть popup
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
+    errors.forEach(error => error.textContent = '');
 };
 
 //функция закрыть по Overlay
@@ -135,7 +139,7 @@ buttonOpenEditProfilePopup.addEventListener('click', function() {
 buttonOpenAddCardPopup.addEventListener('click', function() {
     openPopup(popupAddProfile);
     cardNameInput.value = '';
-    cardLinkInput.value = '';xcvv
+    cardLinkInput.value = '';
 });
 
 //закрыть попап по крестику
@@ -150,7 +154,7 @@ formEdit.addEventListener('submit', handleEditFormSubmit);
 formAdd.addEventListener('submit', handleAddFormSubmit);
 
 //закрыть попап по Overlay
-document.addEventListener('click', closePopupByOverlay);
+document.addEventListener('mousedown', closePopupByOverlay);
 
 //закрыть попап по Esc
 document.addEventListener('keydown', closePopupByEsc);

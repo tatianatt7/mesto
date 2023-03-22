@@ -53,12 +53,12 @@
                 type="text" 
                 placeholder="Ваше имя"
                 name="profile__user-name"
-                minlength="2""
+                minlength="2"
                 maxlength="40"
                 id="name-input"
                 >
 
-                <span class="popup__error"></span>
+                <span class="popup__error profile__user-name-error"></span>
 
                 <input 
                 required
@@ -71,7 +71,7 @@
                 id="job-input"
                 >
 
-                <span class="popup__error"></span>
+                <span class="popup__error profile__job-error"></span>
 
                 <button type="submit" class="popup__submit-btn">Сохранить</button>
             </form>
@@ -84,6 +84,7 @@
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form_type_add" name="popup__form" novalidate>
                 <input 
+                required
                 class="popup__input popup__input_value_card-name" 
                 type="text"
                 placeholder="Название"
@@ -92,9 +93,10 @@
                 maxlength="30"
                 id="card-name">
 
-                <span class="popup__error"></span>
+                <span class="popup__error card-name-error"></span>
 
-                <input 
+                <input
+                required
                 class="popup__input popup__input_value_card-link" 
                 type="url" 
                 placeholder="Ссылка на картинку"
@@ -102,7 +104,7 @@
                 id="card-link"
                 >
 
-                <span class="popup__error"></span>
+                <span class="popup__error card-link-error"></span>
 
                 <button type="submit" class="popup__submit-btn">Сохранить</button>
             </form>
@@ -128,9 +130,9 @@
         </div>
     </template>    
 
-    <script src="./scripts/validate.js"></script>
-    <script src="./scripts/constants.js"></script>    
+    <script src="./scripts/constants.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 
 </body>
 
