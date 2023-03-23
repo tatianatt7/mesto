@@ -42,18 +42,19 @@ const cardsList = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
 //errors
-const errors = document.querySelectorAll('.popup__error');
+//const errors = document.querySelectorAll('.popup__error');
 
 //ФУНКЦИИ
 //функция открыть popup
 function openPopup (popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupByEsc);
 };
 
 //функция закрыть popup
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
-    errors.forEach(error => error.textContent = '');
+    document.removeEventListener('keydown', closePopupByEsc);
 };
 
 //функция закрыть по Overlay
@@ -81,10 +82,13 @@ function handleEditFormSubmit (event) {
     profileJob.textContent = jobInput.value;
     closePopup(popupEditProfile);
 }
+const addCardSubmitButton = formAdd.querySelector('.popup__submit-btn');
 function handleAddFormSubmit (event) {
     event.preventDefault();
     cardsList.prepend(createCard(cardNameInput.value,cardLinkInput.value));
     event.target.reset();
+    addCardSubmitButton.disabled = true;
+    addCardSubmitButton.classList.add('popup__submit-btn_disabled');
     closePopup(popupAddProfile);
 }
 
@@ -138,8 +142,7 @@ buttonOpenEditProfilePopup.addEventListener('click', function() {
 
 buttonOpenAddCardPopup.addEventListener('click', function() {
     openPopup(popupAddProfile);
-    cardNameInput.value = '';
-    cardLinkInput.value = '';
+    formAdd.reset();
 });
 
 //закрыть попап по крестику
@@ -155,6 +158,3 @@ formAdd.addEventListener('submit', handleAddFormSubmit);
 
 //закрыть попап по Overlay
 document.addEventListener('mousedown', closePopupByOverlay);
-
-//закрыть попап по Esc
-document.addEventListener('keydown', closePopupByEsc);
