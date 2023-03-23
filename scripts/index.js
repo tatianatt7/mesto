@@ -20,7 +20,6 @@ const zoomOpenButton = document.querySelector('.card');
 
 //кнопка закрытия попапов
 const popupCloseBtns = document.querySelectorAll('.popup__close-btn');
-
 //popup data
 //edit
 const nameInput = popupEditProfile.querySelector('.popup__input_value_user-name');
