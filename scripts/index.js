@@ -1,4 +1,6 @@
-
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
+import { initialCards, config } from "./constants.js";
 
 // let popupForm = document.querySelector('.popup__form');
 
@@ -84,52 +86,28 @@ function handleEditFormSubmit (event) {
 const addCardSubmitButton = formAdd.querySelector('.popup__submit-btn');
 function handleAddFormSubmit (event) {
     event.preventDefault();
-    cardsList.prepend(createCard(cardNameInput.value,cardLinkInput.value));
+    renderCard(cardNameInput.value,cardLinkInput.value, openZoomPopup);
     event.target.reset();
     addCardSubmitButton.disabled = true;
     addCardSubmitButton.classList.add('popup__submit-btn_disabled');
     closePopup(popupAddProfile);
 }
 
-//создание карточки
-function createCard(name, link) {
-    const cards = cardTemplate.querySelector('.card').cloneNode(true);
-    const cardImage = cards.querySelector('.card__image');
-    const cardTitle = cards.querySelector('.card__title');
-    const cardLikeBtn = cards.querySelector('.card__like-btn');
-    const cardTrashBtn = cards.querySelector('.card__trash-btn');
-
-    cardTitle.textContent = name;
-    cardImage.src = link;
-    cardImage.alt = name;
-
-    //открытие zoom
-    cardImage.addEventListener('click', function() {
-        openPopup(popupZoom);
-        zoomTitle.textContent = name;
-        zoomLink.src = link;
-        zoomTitle.alt = name;
-    });
-
-    //likes
-    cardLikeBtn.addEventListener('click', (event) => {
-        event.target.classList.toggle('card__like-btn_active');
-    });
-
-    //trash
-    cardTrashBtn.addEventListener('click', (event) => {
-        event.target.closest('.card').remove();
-    })
-
-    return cards;
-}
+//открытие zoom
+function openZoomPopup(name, link) {
+    openPopup(popupZoom);
+    zoomTitle.textContent = name;
+    zoomLink.src = link;
+    zoomTitle.alt = name;
+};
 
 //рендер карточек
-function renderCards(name, link) {
-    cardsList.prepend(createCard(name, link))
+function renderCard(name, link, handleCardClick) {
+    const newCard = new Card({name, link}, '#card-template', handleCardClick).generateCard();
+    cardsList.prepend(newCard)
 }
 
-initialCards.forEach(card => renderCards(card.name, card.link, card.name));
+initialCards.forEach(card => renderCard(card.name, card.link, openZoomPopup));
 
 //LISTENERS
 //открыть попап
@@ -157,3 +135,10 @@ formAdd.addEventListener('submit', handleAddFormSubmit);
 
 //закрыть попап по Overlay
 document.addEventListener('mousedown', closePopupByOverlay);
+
+//экземпляры класса валидации
+const popupEditProfileValidator = new FormValidator(config, popupEditProfile);
+popupEditProfileValidator.enableValidation();
+
+const popupAddProfileValidator = new FormValidator(config, popupAddProfile);
+popupAddProfileValidator.enableValidation();
