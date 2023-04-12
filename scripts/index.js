@@ -42,8 +42,14 @@ const zoomTitle = popupZoom.querySelector('.popup__card-title');
 const cardsList = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content;
 
-//errors
-//const errors = document.querySelectorAll('.popup__error');
+
+//экземпляры класса валидации
+const popupEditProfileValidator = new FormValidator(config, popupEditProfile);
+popupEditProfileValidator.enableValidation();
+
+const popupAddProfileValidator = new FormValidator(config, popupAddProfile);
+popupAddProfileValidator.enableValidation();
+
 
 //ФУНКЦИИ
 //функция открыть popup
@@ -56,6 +62,8 @@ function openPopup (popup) {
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
+    popupEditProfileValidator.resetErrors();
+    popupAddProfileValidator.resetErrors();
 };
 
 //функция закрыть по Overlay
@@ -76,7 +84,7 @@ function closePopupByEsc (event) {
     }
 };
 
-//функция submit
+//функции submit
 function handleEditFormSubmit (event) {
     event.preventDefault(); 
     profileUserName.textContent = nameInput.value;
@@ -88,8 +96,7 @@ function handleAddFormSubmit (event) {
     event.preventDefault();
     renderCard(cardNameInput.value,cardLinkInput.value, openZoomPopup);
     event.target.reset();
-    addCardSubmitButton.disabled = true;
-    addCardSubmitButton.classList.add('popup__submit-btn_disabled');
+    popupAddProfileValidator.disableSubmitButton();
     closePopup(popupAddProfile);
 }
 
@@ -135,10 +142,3 @@ formAdd.addEventListener('submit', handleAddFormSubmit);
 
 //закрыть попап по Overlay
 document.addEventListener('mousedown', closePopupByOverlay);
-
-//экземпляры класса валидации
-const popupEditProfileValidator = new FormValidator(config, popupEditProfile);
-popupEditProfileValidator.enableValidation();
-
-const popupAddProfileValidator = new FormValidator(config, popupAddProfile);
-popupAddProfileValidator.enableValidation();
