@@ -6,10 +6,6 @@ export default class Card {
         this._handleCardClick = handleCardClick;
     };
 
-
-    
-    
-    
     _getTemplate = () => {        
         const cardElement = document
         .querySelector(this._templateSelector)
