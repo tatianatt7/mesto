@@ -1,11 +1,12 @@
-import './pages/index.css';
-import Card from "./components/Card.js";
-import FormValidator from "./components/FormValidator.js";
-import { initialCards, config } from "./scripts/constants.js";
-import { Section } from './components/Section.js';
-import { PopupWithImage } from './components/PopupWithImage.js';
-import { PopupWithForm } from './components/PopupWithForm.js';
-import { UserInfo } from './components/UserInfo.js';
+import './index.css';
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import { initialCards, config } from "../scripts/constants.js";
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js';
+
 
 //попап ZOOM
 const popupZoom = new PopupWithImage('.popup_type_zoom');
@@ -18,8 +19,6 @@ const formAdd = document.querySelector('.popup__form_type_add');
 //кнопки открытия попапов
 const buttonOpenEditProfilePopup = document.querySelector('.profile__edit-btn');
 const buttonOpenAddCardPopup = document.querySelector('.profile__add-btn');
-
-
 
 //экземпляры класса валидации
 const popupEditProfileValidator = new FormValidator(config, formEdit);
@@ -49,13 +48,15 @@ const popupAddProfile = new PopupWithForm('.popup_type_add', handleAddFormSubmit
 popupAddProfile.setEventListeners();
 
 
-
 // CLASS SECTION
+const createCard = (name, link) => new Card({name, link}, '#card-template', popupZoom.open).generateCard();
+
 const section = new Section({items: initialCards, renderer: renderCard}, '.cards__list');
 section.renderer();
+
 //функция рендера карточек
 function renderCard({name, link}) {
-    const newCard = new Card({name, link}, '#card-template', popupZoom.open).generateCard();
+    const newCard = createCard(name, link);
     section.addItem(newCard);
 }
 

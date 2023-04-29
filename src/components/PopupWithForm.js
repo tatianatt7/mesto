@@ -9,9 +9,9 @@ export class PopupWithForm extends Popup {
     }
 
     _getInputValues() {
-        let values = {};
-        this._inputs.forEach((input) => {values[input.getAttribute('name')] = input.value});
-        return values;
+        const formValues = {};
+        this._inputs.forEach((input) => {formValues[input.getAttribute('name')] = input.value});
+        return formValues;
     }
 
     setEventListeners = () => {
