@@ -21,7 +21,7 @@
     background-size: 26px 26px;
     background-image: url(/src/images/avatar-container.svg);
     visibility: hidden;
-    background-position: center;cd
+    background-position: center;
 }
 
 .profile__avatar-container:hover::after {
