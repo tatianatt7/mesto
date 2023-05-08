@@ -6,6 +6,8 @@ export class PopupWithForm extends Popup {
         this._submitFormCallback = submitFormCallback;
         this._form = this._popup.querySelector('.popup__form');
         this._inputs = this._form.querySelectorAll('input');
+        this._submitButton = this._popup.querySelector('.popup__submit-btn');
+        this._initialButtonText = this._submitButton.textContent;
     }
 
     _getInputValues() {
@@ -13,6 +15,10 @@ export class PopupWithForm extends Popup {
         this._inputs.forEach((input) => {formValues[input.getAttribute('name')] = input.value});
         return formValues;
     }
+
+    setSubmitButtonText = (text) => this._submitButton.textContent = text;
+
+    resetSubmitButtonText = () => this._submitButton.textContent = this._initialButtonText;
 
     setEventListeners = () => {
         super.setEventListeners();
