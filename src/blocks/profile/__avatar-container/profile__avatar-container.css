@@ -16,9 +16,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: block;
     background-color: rgba(0, 0, 0, 0.8);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;cd
     background-size: 26px 26px;
     background-image: url(/src/images/avatar-container.svg);
     visibility: hidden;
