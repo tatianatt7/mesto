@@ -39,24 +39,26 @@ popupEditProfileValidator.enableValidation();
 const popupAddProfileValidator = new FormValidator(config, formAdd);
 popupAddProfileValidator.enableValidation();
 
-const popupAvatarValidator = new FormValidator(config, formAdd);
+const popupAvatarValidator = new FormValidator(config, formAvatar);
 popupAvatarValidator.enableValidation();
 
 
 
 // CLASS USERINFO
 const userInfo = new UserInfo({ imageSelector: '.profile__avatar', nameSelector: '.profile__user-name', jobSelector: '.profile__job' });
-let section, currentUserId;
+const section = new Section({renderer: renderCard}, '.cards__list');
+let currentUserId;
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then((response) => {
-    userInfo.setUserInfo({ link: response[0].avatar, name: response[0].name, job: response[0].about });
+    userInfo.setUserInfo({ 
+      link: response[0].avatar, 
+      name: response[0].name, 
+      job: response[0].about });
     currentUserId = response[0]._id;
-    section = new Section({ items: response[1], renderer: renderCard }, '.cards__list');
-    section.renderer();
+    section.renderItems(response[1]);
   })
   .catch((error) => console.log(`Ошибка: ${error}`))
-
 
 //функции submit
 function handleEditFormSubmit(data) {
@@ -75,7 +77,6 @@ function handleAddFormSubmit(data) {
   api.addCard(data['card-name'], data['card-link'])
     .then((response) => {
       renderCard(response);
-      popupAddProfileValidator.disableSubmitButton();
       popupAddProfile.close();
     })
     .catch((error) => console.log(`Ошибка: ${error}`))
@@ -161,5 +162,13 @@ buttonOpenEditProfilePopup.addEventListener('click', function () {
   jobInput.value = data.job;
 });
 
-buttonOpenAvatarPopup.addEventListener('click', () => { popupAvatar.open() });
-buttonOpenAddCardPopup.addEventListener('click', () => { popupAddProfile.open() });
+buttonOpenAvatarPopup.addEventListener('click', () => { 
+  popupAvatar.open() 
+});
+
+buttonOpenAddCardPopup.addEventListener('click', () => { 
+  popupAddProfile.open();
+  popupAddProfileValidator.disableSubmitButton();
+});
+
+  

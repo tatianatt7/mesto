@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(data, templateSelector, handleCardClick, UsersID, handleDelIconClick, handleLikeClick) {
+    constructor(data, templateSelector, handleCardClick, usersID, handleDelIconClick, handleLikeClick) {
         this._name = data.name;
         this._link = data.link;
         this._templateSelector = templateSelector;
@@ -12,7 +12,7 @@ export default class Card {
 
         this._likeCounter = this._card.querySelector('.card__like-count');
 
-        this._UsersID = UsersID;
+        this._usersID = usersID;
         this._handleDelIconClick = handleDelIconClick;
         this._handleLikeClick = handleLikeClick;
         this._ownersId = data.owner._id;
